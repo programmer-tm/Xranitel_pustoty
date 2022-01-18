@@ -4,12 +4,13 @@
 			<div class="post-title">
 				<div class="post-date">
 					<br>
-					<img class="post-date-img" src="/img/<?=$img?>" alt="">
+					<img class="post-date-img"  loading="auto" src="/img/<?=$img?>" alt="">
 				</div>			
 				<h2><?=$post['title'];?></h2>
 			</div>
 			<div class="post-entry">
-			<a href="post/?id=<?=$post['id']?>"  title="Просмотр всего произведения"><img class="post-entry-img" src="/img/<?php echo ($post['image']) ?: 'null.jpeg';?>" alt="<?php echo ($post['image']) ?: 'null.jpeg';?>" hspace="4" align="left" class="float-left" <img src="/img/<?=$img?>" alt="<?=$img?>"></a>
+			<a href="post/?id=<?=$post['id']?>"  title="Просмотр всего произведения">
+			<img src="/img/<?php echo ($post['image']) ?: 'null.jpeg';?>" loading="auto" class="post-entry-img" alt="<?php echo ($post['image']) ?: 'null.jpeg';?>" hspace="4" align="left" class="float-left"></a>
 				<?php $text = explode("\r\n", $post['text']); echo $text[0]."<br>".$text[1]."<br>".$text[2]."<br>".$text[3];?><br>
 			</div>
 			<div class="post-info">

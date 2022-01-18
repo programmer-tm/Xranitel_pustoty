@@ -14,7 +14,7 @@ if(freeContent("SHOW TABLES like 'posts'") && freeContent("SHOW TABLES like 'com
 // Иначе проверим флаг установки: (поля, коль не дурак, забивает точно)
 if ($_GET['done'] == '1'){
   // Очищаем БД от старых таблиц!
-  $params = "DROP TABLE `comments`, `posts`, `users`;";
+  $params = "DROP TABLE `comments`, `messages`, `posts`, `users`;";
   addTable($params);
   // Блок очистки закончен
   // Установим таблицы заново:

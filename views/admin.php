@@ -43,7 +43,7 @@
 	<th>Аватар</th>
 	<th>Пароль</th>
 </tr>
-	<td><img class="post-entry-img-avatar" src="/img/<?php echo ($user['avatar']) ?: 'null.jpeg';?>" alt="<?=$user["nickname"];?>"><input accept=".jpg, .jpeg, .png, .gif, .bmp" name="userfile" type="file" />
+	<td><img class="post-entry-img-avatar" loading="auto" src="/img/<?php echo ($user['avatar']) ?: 'null.jpeg';?>" alt="<?=$user["nickname"];?>"><input accept=".jpg, .jpeg, .png, .gif, .bmp" name="userfile" type="file" />
 	<?php if ($user["avatar"] != ""):?>
     <br><input type="button" onclick="if(confirm('Удалить аватарку?!\nЭта операция не обратима!')){document.location.href = '/admin/?killAvatar=<?php echo $user['id'];?>';};" value="Удалить Аватар"/>
     <?php endif;?></td>
@@ -75,7 +75,7 @@
 			<th>Заголовок</th>
 		</tr>
 		<tr>
-			<td><img class="post-entry-img-post" src="/img/null.jpeg"><input accept=".jpg, .jpeg, .png, .gif, .bmp" name="userfile" type="file" /></td>
+			<td><img class="post-entry-img-post" loading="auto" src="/img/null.jpeg"><input accept=".jpg, .jpeg, .png, .gif, .bmp" name="userfile" type="file" /></td>
 			<td><input type="text" name="postTitle" placeholder="Заголовок"></td>
 		</tr>
 		<tr>

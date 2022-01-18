@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Данные для поисковиков: (Тут каждый прописывает то, сто нужно именно в его случае)-->
+    <!--Данные для поисковиков: (Тут каждый прописывает то, что нужно именно в его случае)-->
     <meta name="keywords" content="Сергей, Минеев, стихи, Бредни писателя, Хранитель пустоты, Сайт стихов Сергея Минеева">
     <meta name="description" content="Сергей, Минеев, стихи, Бредни писателя, Хранитель пустоты, Сайт стихов Сергея Минеева">
     <!--Заголовочная часть-->
@@ -27,7 +27,6 @@
     <link rel="icon" href="/images/1.ico" type="image/x-icon">
 	<!--Подключаем табличку стилей:-->
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
-	<!--HTML редактор:-->
 </head>
 <body>
 	<!--Проверка сообщения для вывода или не в

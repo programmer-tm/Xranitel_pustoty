@@ -149,6 +149,9 @@ function userEdit($status, $avatar = ""){
             unlink("img/{$_SESSION['avatar']}");
         }
         updContent($table, $params);
+        if ($_SESSION['id'] == $_POST['user_id'] && $avatar){
+            $_SESSION['avatar'] = $avatar;
+        }
         // Переадрес:
         header("Location: /admin");
     }elseif ($_SESSION['id'] == $_POST['user_id']){
@@ -319,6 +322,11 @@ function userAvatarReset($status){
                 $params="SET `avatar` = 'admin.gif' where id = '{$_GET['killAvatar']}'";
             } else {
                 $params="SET `avatar` = '' where id = '{$_GET['killAvatar']}'";
+            }
+            if ($_SESSION['id'] == "1"){
+                $_SESSION['avatar'] = "admin.gif";
+            } else {
+                $_SESSION['avatar'] = "";
             }
             // Внесем изменения в БД:
             updContent($table, $params);
