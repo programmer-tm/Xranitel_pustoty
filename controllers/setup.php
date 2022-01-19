@@ -6,11 +6,12 @@ if (!$title){
   include "../models/mysql.php";
 }
 // Запрос на наличие Таблиц: (если есть, то уходим с установки восвояси!)
-if(freeContent("SHOW TABLES like 'posts'") && freeContent("SHOW TABLES like 'comments'") && freeContent("SHOW TABLES like 'users'")){
+if($db && freeContent("SHOW TABLES like 'posts'") && freeContent("SHOW TABLES like 'comments'") && freeContent("SHOW TABLES like 'users'")){
   header("Location: /");
 } else {
   session_destroy();
 }
+
 // Иначе проверим флаг установки: (поля, коль не дурак, забивает точно)
 if ($_GET['done'] == '1'){
   // Очищаем БД от старых таблиц!
@@ -101,4 +102,32 @@ if ($_GET['done'] == '1'){
   addTable($params);
   // Обнуляем автоинкременты...
   header("Location: /");
+} elseif ($_GET['done'] == "0"){
+  function editConfig($params, $values){
+    $config = parse_ini_file("../config/config.ini", true);
+    $config["$params"] = $values;
+    $fp = fopen('../config/config.ini', 'w+');
+    foreach ($config as $param => $value){
+        if (is_array($value)){
+            fwrite($fp, "[".$param."]\n");
+            foreach ($value as $par => $val){
+                fwrite($fp, $par." = '".$val."'\n");
+            }
+        } else{
+            fwrite($fp, $param." = '".$value."'\n");
+        }
+    }
+    fclose($fp);
+  }
+  editConfig('title',$_POST['title']);
+  editConfig('mysql',$_POST['mysql']);
+  editConfig('port',$_POST['port']);
+  editConfig('login',$_POST['login']);
+  editConfig('password',$_POST['password']);
+  editConfig('bd',$_POST['bd']);
+  editConfig('pCount',$_POST['pCount']);
+  editConfig('mCount',$_POST['mCount']);
+  if (dbConnect($_POST['mysql'],$_POST['port'], $_POST['login'], $_POST['password'], $_POST['bd'])){
+    header("Location: /");
+  }
 }

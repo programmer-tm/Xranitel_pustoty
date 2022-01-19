@@ -33,12 +33,19 @@ if (!$mCount){
 }
 
 // Делаем коннект к БД:
-if (!$db){
-    // Подключение с параметрами из конфига:
-    $db = mysqli_connect($mysql.':'.$mysqlPort, $mysqlLogin, $mysqlPassword, $datebase);
-    // Кодировка:
-    mysqli_set_charset($db, "utf8");
+function dbConnect($mysql,$mysqlPort, $mysqlLogin, $mysqlPassword, $datebase){
+    if (!$db){
+        // Подключение с параметрами из конфига:
+        $db = mysqli_connect($mysql.':'.$mysqlPort, $mysqlLogin, $mysqlPassword, $datebase);
+        if ($db){
+            // Кодировка:
+            mysqli_set_charset($db, "utf8");
+        }
+    } return $db;
 }
+
+$db = dbConnect($mysql,$mysqlPort, $mysqlLogin, $mysqlPassword, $datebase);
+
 // Получить список значений
 function allContent($table, $params = ""){
     global $db;
@@ -76,7 +83,7 @@ function addTable($params){
 }
 
 // Список закончен. Модельки собирают данные из базы или конфига.
-if (freeContent("SHOW TABLES like 'posts'") && freeContent("SHOW TABLES like 'comments'") && freeContent("SHOW TABLES like 'users'")&& freeContent("SHOW TABLES like 'messages'")){
+if ($db && freeContent("SHOW TABLES like 'posts'") && freeContent("SHOW TABLES like 'comments'") && freeContent("SHOW TABLES like 'users'")&& freeContent("SHOW TABLES like 'messages'")){
     $commentsSite = freeContent("SELECT name, text, `user_id`, (select avatar from users where user_id = id limit 1) as avatar FROM `comments` where `post_id` = 0 and status = 1 order by id desc limit 3");
 }
 

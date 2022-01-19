@@ -5,7 +5,7 @@ $page = "Главная страница";
 include "../models/mysql.php";
 include "../models/menu.php";
 // Список закончен. Модельки собирают данные из базы или конфига.
-if(freeContent("SHOW TABLES like 'posts'") && freeContent("SHOW TABLES like 'comments'") && freeContent("SHOW TABLES like 'users'")&& freeContent("SHOW TABLES like 'messages'")){
+if($db && freeContent("SHOW TABLES like 'posts'") && freeContent("SHOW TABLES like 'comments'") && freeContent("SHOW TABLES like 'users'")&& freeContent("SHOW TABLES like 'messages'")){
     // Опишем параметры запроса. (Пока общий вид)
     $pMax = (int)((freeContent("SELECT count(id) as postCount FROM `posts`")['0']['postCount'] - 1) / $pCount);
     // Тут мы получили максимум страниц, далее принимаем страничку...
