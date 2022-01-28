@@ -13,10 +13,8 @@
 		</div>
 		<div class="post-entry">
 			<form action="/reset/?resetPassword=1" method="post" enctype="multipart/form-data">
-				<label for="login"><b>Логин:</b></label>
-				<input type="text" placeholder="Введите логин" name="login" required><br>
-				<button type="submit">Сбросить пароль</button>
-				<button type="reset" class="cancelbtn">Очистить</button>
+				<input style="width: 540px; margin-bottom: 4px;" type="text" placeholder="Введите логин" name="login" required><br>
+				<center><button type="submit">Сбросить пароль</button> <button type="reset" class="cancelbtn">Очистить</button></center>
 			</form>
 		</div>
 		<div class="post-info">

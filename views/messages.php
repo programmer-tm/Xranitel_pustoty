@@ -27,7 +27,7 @@
                 <?php else:?>
                 <td><b>NEW</b></td>
                 <?php endif;?>
-                <td><a href="/messages/?delete=<?=$messageTo['id'];?>">Удалить</a><?php if (!$messageTo['date_read']):?><a href="/messages/?read=<?=$messageTo['id'];?>">Прочитать</a><?php endif;?></td>
+                <td><a href="/messages/?delete=<?=$messageTo['id'];?>">Удалить</a><br><?php if (!$messageTo['date_read']):?><a href="/messages/?read=<?=$messageTo['id'];?>">Прочитать</a><?php endif;?></td>
             </tr>
             <?php endforeach;?>
         </table>
@@ -94,14 +94,14 @@
         <?php if(($mCount - $mCountBd) != 0):?>
         <form action="#" method="post" enctype="multipart/form-data">
             Выбор пользователя:
-            <select style="width: 551px;" name="user_to">
+            <select style="width: 550px;" name="user_to">
                 <?php foreach($userList as $to):?>
                 <option value="<?=$to['id'];?>"><?=$to['nickname'];?>(<?=$to['surname'];?> <?=$to['name'];?>)</option>
                 <?php endforeach;?>
             </select>
             <br>
             Введите сообщение:
-            <textarea name="message" id="" cols="66" rows="8"></textarea>
+            <textarea style="width: 544px; height: 200px;" name="message"></textarea>
             <button type="submit">Отправить</button>
         </form>
         <?php else:?>

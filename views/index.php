@@ -6,7 +6,7 @@
 					<br>
 					<img class="post-date-img"  loading="auto" src="/img/<?=$img?>" alt="">
 				</div>			
-				<h2><?=$post['title'];?></h2>
+				<h2><a href="post/?id=<?=$post['id']?>"  title="Просмотр всего произведения"><?=$post['title'];?></a></h2>
 			</div>
 			<div class="post-entry">
 			<a href="post/?id=<?=$post['id']?>"  title="Просмотр всего произведения">

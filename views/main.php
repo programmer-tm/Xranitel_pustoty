@@ -27,6 +27,9 @@
     <link rel="icon" href="/images/1.ico" type="image/x-icon">
 	<!--Подключаем табличку стилей:-->
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
 </head>
 <body>
 	<!--Проверка сообщения для вывода или не в
@@ -41,12 +44,17 @@
 		<h1><a href="/"><?=$title;?></a></h1>
 		<div class="description"><?=$page;?></div>
 	</div>
-	<!-- Навигационка... Не используется в нашем проекте, но можно реализовать
+	<!--Навигационная система проекта-->
 	<div id="header-menu">
 		<ul>
-			<li><a href="#">Главная</a></li>
+			<li><a href="/">Главная</a></li>
+			<?php if($_SESSION['id']):?>
+			<li><a href="/messages/">Личные сообщения</a></li>
+			<li><a href="/admin/">Личный кабинет</a></li>
+			<?php endif;?>
+			<li><a href="/downloads/books.pdf.zip">Архив книг</a></li>
 		</ul>
-	</div>-->
+	</div>
 	<!-- Подписки на новости не используются (Картинка вырезана из проекта)
 	<div id="header-feed">
 		<a href="rss.xml"><img src="/images/blank.gif" alt="RSS Feed" width="125" height="50" /></a>
@@ -70,7 +78,7 @@
 		<h3>Полезные ссылки:</h3>
 		<ul>
 		<?php foreach($links as $title => $link):?>
-				<a href="<?=$link;?>"><li><?=$title;?></li></a>
+			<li><a href="<?=$link;?>"><?=$title;?></a></li>
 		<?php endforeach;?>
 		</ul>
 	</div>
@@ -102,18 +110,13 @@
 	<?php endif;?>
 	<!-- Это блоки навигации -->
 	<div class="sidebar-box-blank">
-	</div>
-	<h3 style="margin-left: 1vh;">Оставить отзыв о сайте:</h3>
-	<div style="margin-left: 1vh;">
+		<h3>Оставить отзыв о сайте:</h3>
 		<form action="/post/?id=0" method="post" enctype="multipart/form-data">
 		<?php if (!$_SESSION['login']):?>
-			<label for="name"><b>Ваше имя:</b></label>
-			<input type="text"  size = 12 placeholder="Имя" name="name" required><br>
-			<label for="email"><b>Email:</b></label>
-			<input type="email" size = 15 placeholder="Email" name="email" required><br>
+			<input style="width: 180px; margin-bottom: 4px;" type="text" placeholder="Введите имя" name="name" required><br>
+			<input style="width: 180px; margin-bottom: 4px;" type="email" placeholder="Введите email" name="email" required><br>
 		<?php endif;?>
-			<label for="text"><b>Комментарий:</b></label>
-			<textarea placeholder="Комментарий" name="text" required></textarea><br>
+			<textarea style="width: 180px; margin-bottom: 4px;" placeholder="Введите текст комментария" name="text" required></textarea><br>
 			<button type="submit">Отправить</button>
 			<button type="reset" class="cancelbtn">Очистить</button>
 		</form>

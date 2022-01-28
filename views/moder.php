@@ -16,12 +16,12 @@
                 </tr>
                 <tr>
                     <input type="text" name="user_id" value="<?=$user['id']?>" hidden>
-                    <td><input type="text" size="29" name="name" value="<?=$user['name'];?>"></td>
-                    <td><input type="text" size="15" name="surname" value="<?=$user['surname'];?>"></td>
+                    <td style="width: 33%;"><input style="width: 97%;" type="text" name="name" value="<?=$user['name'];?>"></td>
+                    <td style="width: 33%;"><input style="width: 95%;" type="text" name="surname" value="<?=$user['surname'];?>"></td>
                     <?php if ($user['status'] == 1):?>
-                    <td>Модератор</td>
+                    <td style="width: 33%;"><center>Модератор</center></td>
                     <?php elseif ($user['status'] == 2):?>
-                    <td>Пользователь</td>
+                    <td style="width: 33%;"><center>Пользователь</center></td>
                     <?php endif;?>
                 </tr>
                 <tr>
@@ -30,12 +30,12 @@
                     <th>Взаимодействие</th>
                 </tr>
                 <tr>
-					<td><img class="post-entry-img-avatar" src="/img/<?php echo ($user['avatar']) ?: 'null.jpeg';?>" alt="<?=$user["nickname"];?>"><input accept=".jpg, .jpeg, .png, .gif, .bmp" name="userfile" type="file" />
+					<td style="width: 33%;"><center><img class="post-entry-img-avatar" src="/img/<?php echo ($user['avatar']) ?: 'null.jpeg';?>" alt="<?=$user["nickname"];?>"><input accept=".jpg, .jpeg, .png, .gif, .bmp" name="userfile" type="file" />
 					<?php if ($user["avatar"] != ""):?>
                     <br><input type="button" onclick="if(confirm('Удалить аватарку?!\nЭта операция не обратима!')){document.location.href = '/admin/?killAvatar=<?php echo $user['id'];?>';};" value="Удалить Аватар"/>
-                    <?php endif;?></td>
-                    <td><input type="text" size="15" name="password" value="***"></td>
-                    <td><button type="submit">Сохранить</button><br><input type="button" onclick="if(confirm('Убить тебя об стенку?!\nЭта операция не обратима!')){document.location.href = '/admin/?kill=<?php echo $user['id'];?>';};" value="Удалить профиль"/></td>
+                    <?php endif;?></center></td>
+                    <td style="width: 33%;"><input style="width: 95%;" type="text" name="password" value="***"></td>
+                    <td style="width: 33%;"><center><button type="submit">Сохранить</button><br><input type="button" onclick="if(confirm('Убить тебя об стенку?!\nЭта операция не обратима!')){document.location.href = '/admin/?kill=<?php echo $user['id'];?>';};" value="Удалить профиль"/><center></td>
                 </tr>
 	        </table>
         </form>
@@ -56,37 +56,37 @@
     <?php if ($commentList):?>
             <table border="1" width="98%" bordercolor="black">
 				<tr>
-					<th>Комментарий к посту</th>
-					<th>Логин на сайте</th>
-					<th>Кто оставил</th>
-					<th>Текст комментария</th>
-	    			<th>Изменить статус</th>
-					<th>Взаимодействие</th>
+					<th style="width: 16%;">Комментарий к посту</th>
+					<th style="width: 16%;">Логин на сайте</th>
+					<th style="width: 16%;">Кто оставил</th>
+					<th style="width: 16%;">Текст комментария</th>
+	    			<th style="width: 16%;">Изменить статус</th>
+					<th style="width: 16%;">Взаимодействие</th>
 				</tr>
 				<?php foreach($commentList as $list):?>
 				<form action="/admin/?edit=2" method="post" enctype="multipart/form-data">
 				<tr>
 					<input type="text" name="post_id" value="<?=$list['id']?>" hidden>
 					<?php if ($list['title']):?>
-					<td><?=$list['title'];?></td>
+					<td style="width: 16%;"><center><?=$list['title'];?></center></td>
 					<?php else:?>
-					<td>Отзыв о сайте</td>
+					<td style="width: 16%;"><center>Отзыв о сайте</center></td>
 					<?php endif;?>
 					<?php if (!is_null($list['nickname'])):?>
-					<td><?=$list['nickname'];?></td>
+					<td style="width: 16%;"><center><?=$list['nickname'];?></center></td>
 					<?php else:?>
-					<td>Не зарегистрирован</td>
+					<td style="width: 16%;"><center>Не зарегистрирован</center></td>
 					<?php endif;?>
-					<td><input type="text" size="7" name="name" value="<?=$list['name']?>"></td>
-					<td><input type="text" size="9" name="text" value="<?=$list['text']?>"></td>
+					<td style="width: 16%;"><input style="width: 89%;" type="text" name="name" value="<?=$list['name']?>"></td>
+					<td style="width: 16%;"><input style="width: 92%;" type="text" name="text" value="<?=$list['text']?>"></td>
 					<?php if($list['status'] == 0):?>
-					<td><a href="/admin/?mod=<?=$list['id'];?>">Опубликовать</a></td>
+					<td style="width: 16%;"><a href="/admin/?mod=<?=$list['id'];?>"><center>Опубликовать</center></a></td>
 					<?php elseif($list['status'] == 1):?>
-					<td><a href="/admin/?mod=<?=$list['id'];?>">Снять с публикации</a></td>
+					<td style="width: 16%;"><a href="/admin/?mod=<?=$list['id'];?>"><center>Снять с публикации</center></a></td>
 					<?php else:?>
-					<td><a href="/admin/?mod=<?=$list['id'];?>">Восстановить</a></td>
+					<td style="width: 16%;"><a href="/admin/?mod=<?=$list['id'];?>"><center>Восстановить</center></a></td>
 					<?php endif;?>
-					<td><button type="submit">Сохранить</button><br><a href="/admin/?delete=<?=$list['id'];?>">Удалить</a></td>
+					<td style="width: 16%;"><center><button type="submit">Сохранить</button><br><a href="/admin/?delete=<?=$list['id'];?>">Удалить</a></center></td>
 				</form>
 				</tr>
 				<?php endforeach;?>
