@@ -9,7 +9,7 @@
 	</div>
 	<div class="post-entry">
         <?php if($messagesTo):?>
-        <table style="text-align: center;" border="1" width="98%" bordercolor="black">
+        <table border="1" width="98%" bordercolor="black">
             <tr>
                 <th>От кого</th>
                 <th>Сообщение</th>
@@ -19,15 +19,15 @@
             </tr>
             <?php foreach($messagesTo as $messageTo):?>
             <tr>
-                <td><?=$messageTo['from'];?></td>
-                <td><?=$messageTo['message'];?></td>
-                <td><?=$messageTo['date_message'];?></td>
+                <td><center><?=$messageTo['from'];?></center></td>
+                <td><center><?=$messageTo['message'];?></center></td>
+                <td><center><?=$messageTo['date_message'];?></center></td>
                 <?php if ($messageTo['date_read']):?>
-                <td><?=$messageTo['date_read'];?></td>
+                <td><center><?=$messageTo['date_read'];?></center></td>
                 <?php else:?>
-                <td><b>NEW</b></td>
+                <td><center><b>NEW</b></center></td>
                 <?php endif;?>
-                <td><a href="/messages/?delete=<?=$messageTo['id'];?>">Удалить</a><br><?php if (!$messageTo['date_read']):?><a href="/messages/?read=<?=$messageTo['id'];?>">Прочитать</a><?php endif;?></td>
+                <td><center><a href="/messages/?delete=<?=$messageTo['id'];?>">Удалить</a><br><?php if (!$messageTo['date_read']):?><a href="/messages/?read=<?=$messageTo['id'];?>">Прочитать</a><?php endif;?></center></td>
             </tr>
             <?php endforeach;?>
         </table>
@@ -50,7 +50,7 @@
 	</div>
 	<div class="post-entry">
         <?php if($messagesFrom):?>
-        <table style="text-align: center;" border="1" width="98%" bordercolor="black">
+        <table border="1" width="98%" bordercolor="black">
             <tr>
                 <th>Кому</th>
                 <th>Сообщение</th>
@@ -60,15 +60,15 @@
             </tr>
             <?php foreach($messagesFrom as $messageFrom):?>
             <tr>
-                <td><?=$messageFrom['to'];?></td>
-                <td><?=$messageFrom['message'];?></td>
-                <td><?=$messageFrom['date_message'];?></td>
+                <td><center><?=$messageFrom['to'];?></center></td>
+                <td><center><?=$messageFrom['message'];?></center></td>
+                <td><center><?=$messageFrom['date_message'];?></center></td>
                 <?php if ($messageFrom['date_read']):?>
-                <td><?=$messageFrom['date_read'];?></td>
+                <td><center><?=$messageFrom['date_read'];?></center></td>
                 <?php else:?>
-                <td><b>NEW</b></td>
+                <td><center><b>NEW</b></center></td>
                 <?php endif;?>
-                <td><a href="/messages/?delete=<?=$messageFrom['id'];?>">Удалить</a></td>
+                <td><center><a href="/messages/?delete=<?=$messageFrom['id'];?>">Удалить</a></center></td>
             </tr>
             <?php endforeach;?>
         </table>
@@ -94,14 +94,14 @@
         <?php if(($mCount - $mCountBd) != 0):?>
         <form action="#" method="post" enctype="multipart/form-data">
             Выбор пользователя:
-            <select style="width: 550px;" name="user_to">
+            <select class="form_sel_us" name="user_to">
                 <?php foreach($userList as $to):?>
                 <option value="<?=$to['id'];?>"><?=$to['nickname'];?>(<?=$to['surname'];?> <?=$to['name'];?>)</option>
                 <?php endforeach;?>
             </select>
             <br>
             Введите сообщение:
-            <textarea style="width: 544px; height: 200px;" name="message"></textarea>
+            <textarea class="form_in_mes" name="message"></textarea>
             <button type="submit">Отправить</button>
         </form>
         <?php else:?>

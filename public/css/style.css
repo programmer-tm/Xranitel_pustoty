@@ -588,3 +588,75 @@ button,input[type="button"],input[type="file"]{
 	border-radius: 7px; 
 	border: none;
 }
+
+.zagl_otziv{
+	margin-left: 4vh;
+}
+
+.td_3{
+	width: 33%;
+}
+
+.td_2{
+	width: 50%;
+}
+
+.td_4{
+	width: 25%;
+}
+.td_6{
+	width: 16%;
+}
+
+.t_c_89{
+	width: 89%;
+}
+
+.t_c_92{
+	width: 92%;
+}
+
+.t_c_94{
+	width: 94%;
+}
+
+.t_c_95{
+	width: 95%;
+}
+
+.t_c_97{
+	width: 97%;
+}
+
+.t_c_98{
+	width: 98%;
+}
+
+.form_otziv{
+	width: 180px;
+	margin-bottom: 4px;
+}
+
+.form_sel_us{
+	width: 550px;
+}
+
+.form_in_mes{
+	width: 544px; height: 200px;
+}
+
+.form_in_otz_p{
+	width: 544px;
+	margin-bottom: 4px;
+}
+
+.form_in_otz_p_b{
+	width: 544px;
+	height: 200px;
+	margin-bottom: 4px;
+}
+
+.form_in_reg{
+	width: 540px;
+	margin-bottom: 4px;
+}

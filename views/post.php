@@ -57,10 +57,10 @@
 	<h2>Форма отправки комментариев:</h2>
 	<form action="/post/?id=<?=$post['id'];?>" method="post" enctype="multipart/form-data">
 		<?php if (!$_SESSION['login']):?>
-			<input style="width: 544px; margin-bottom: 4px;" type="text" placeholder="Введите имя" name="name" required><br>
-			<input style="width: 544px; margin-bottom: 4px;" type="email" size = 25 placeholder="Введите email" name="email" required><br>
+			<input class="form_in_otz_p" type="text" placeholder="Введите имя" name="name" required><br>
+			<input class="form_in_otz_p" type="email" size = 25 placeholder="Введите email" name="email" required><br>
 		<?php endif;?>
-            <textarea style="width: 544px; height: 200px; margin-bottom: 4px;" placeholder="Поле для ввода комментария" name="text" required></textarea><br>
+            <textarea class="form_in_otz_p_b" placeholder="Поле для ввода комментария" name="text" required></textarea><br>
             <center><button type="submit">Отправить</button>
             <button type="reset" class="cancelbtn">Очистить</button></center>
 	</form>

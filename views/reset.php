@@ -7,13 +7,13 @@
 		<div class="post-title">
 			<div class="post-date">
 				<br>
-				<p style="text-align: center;">сброс</p>
+				<p><center>сброс</center></p>
 			</div>			
 			<h2>Восстановите мне пароль:</h2>
 		</div>
 		<div class="post-entry">
 			<form action="/reset/?resetPassword=1" method="post" enctype="multipart/form-data">
-				<input style="width: 540px; margin-bottom: 4px;" type="text" placeholder="Введите логин" name="login" required><br>
+				<input class="form_in_reg" type="text" placeholder="Введите логин" name="login" required><br>
 				<center><button type="submit">Сбросить пароль</button> <button type="reset" class="cancelbtn">Очистить</button></center>
 			</form>
 		</div>
@@ -27,16 +27,15 @@
 		<div class="post-title">
 			<div class="post-date">
 				<br>
-				<p style="text-align: center;">сброс</p>
+				<p><center>сброс</center></p>
 			</div>			
 			<h2>Введите новый пароль:</h2>
 		</div>
 		<div class="post-entry">
 			<form action="/reset/?resetPassword=<?=$_GET['resetPassword']?>" method="post" enctype="multipart/form-data">
-				<label for="login"><b>Новый пароль:</b></label>
-				<input type="password" placeholder="Введите пароль" name="password" required><br>
-				<button type="submit">Установить пароль!</button>
-				<button type="reset" class="cancelbtn">Отменить сие дело!</button>
+				<input class="form_in_reg" type="password" placeholder="Введите новый пароль" name="password" required><br>
+				<center><button type="submit">Установить пароль!</button>
+				<button type="reset" class="cancelbtn">Отменить сие дело!</button><center>
 			</form>
 		</div>
 		<div class="post-info">

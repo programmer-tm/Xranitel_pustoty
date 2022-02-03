@@ -86,7 +86,7 @@
 	</div>
 	<!-- Это блоки навигации -->
 	<!-- Это блоки навигации -->
-	<h2 style="margin-left: 4vh;">Отзывы о сайте:</h2>
+	<h2 class="zagl_otziv">Отзывы о сайте:</h2>
 	<?php if($commentsSite):?>
 	<?php foreach($commentsSite as $comment):?>
 	<div class="sidebar-box">
@@ -113,10 +113,10 @@
 		<h3>Оставить отзыв о сайте:</h3>
 		<form action="/post/?id=0" method="post" enctype="multipart/form-data">
 		<?php if (!$_SESSION['login']):?>
-			<input style="width: 180px; margin-bottom: 4px;" type="text" placeholder="Введите имя" name="name" required><br>
-			<input style="width: 180px; margin-bottom: 4px;" type="email" placeholder="Введите email" name="email" required><br>
+			<input class="form_otziv" type="text" placeholder="Введите имя" name="name" required><br>
+			<input class="form_otziv" type="email" placeholder="Введите email" name="email" required><br>
 		<?php endif;?>
-			<textarea style="width: 180px; margin-bottom: 4px;" placeholder="Введите текст комментария" name="text" required></textarea><br>
+			<textarea class="form_otziv" placeholder="Введите текст комментария" name="text" required></textarea><br>
 			<button type="submit">Отправить</button>
 			<button type="reset" class="cancelbtn">Очистить</button>
 		</form>
