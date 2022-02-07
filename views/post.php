@@ -1,3 +1,4 @@
+<?php if($post):?>
 <div class="post">
 	<div class="post-title">
 		<div class="post-date">
@@ -67,3 +68,5 @@
 	<div class="clear"></div>
 </div>
 </div>
+<?php else: header("Location: /")?>
+<?php endif;?>
