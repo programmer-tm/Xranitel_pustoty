@@ -33,18 +33,19 @@ if (!$mCount){
 }
 
 // Делаем коннект к БД:
-function dbConnect($mysql,$mysqlPort, $mysqlLogin, $mysqlPassword, $datebase){
+function dbConnect($mysql, $mysqlPort, $mysqlLogin, $mysqlPassword, $datebase){
     if (!$db){
         // Подключение с параметрами из конфига:
-        $db = mysqli_connect($mysql.':'.$mysqlPort, $mysqlLogin, $mysqlPassword, $datebase);
+        $db = mysqli_connect($mysql.":".$mysqlPort, $mysqlLogin, $mysqlPassword, $datebase);
         if ($db){
             // Кодировка:
             mysqli_set_charset($db, "utf8");
         }
-    } return $db;
+    } 
+    return $db;
 }
 
-$db = dbConnect($mysql,$mysqlPort, $mysqlLogin, $mysqlPassword, $datebase);
+$db = dbConnect($mysql, $mysqlPort, $mysqlLogin, $mysqlPassword, $datebase);
 
 // Получить список значений
 function allContent($table, $params = ""){

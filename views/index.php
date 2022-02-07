@@ -19,16 +19,20 @@
 			<div class="clear"></div>
 		</div>
 	<?php endforeach;?>
-	<?php if(abs(++$_GET['page']) <= $pMax):?>
+	<?php if(($pT=abs($_GET['page'])) <= $pMax):?>
+	<?php $pN = $pT + 1; $pP = $pT - 1;?>
 	<div class="navigation">
-		<?php if(abs($_GET['page']) > 1):?>
-		<div class="navigation-previous"><a href="/?page=<?=(abs($_GET['page'])-2);?>">Назад</a></div>
+		<?php if($pP == 0):?>
+		<div class="navigation-previous"><a href="/">Назад</a></div>
+		<div class="navigation-next"><a href="/?page=<?=$pN;?>">Далее</a></div>
+		<?php elseif($pN > $pMax):?>
+		<div class="navigation-previous"><a href="/?page<?=$pP;?>">Назад</a></div>
+		<?php elseif($pT != 0):?>
+		<div class="navigation-previous"><a href="/?page=<?=$pP;?>">Назад</a></div>
+		<div class="navigation-next"><a href="/?page=<?=$pN;?>">Далее</a></div>
+		<?php elseif ($pT == 0):?>
+		<div class="navigation-next"><a href="/?page=<?=$pN;?>">Далее</a></div>
 		<?php endif;?>
-		<div class="navigation-next"><a href="/?page=<?=abs($_GET['page']);?>">Далее</a></div>
-    </div>
-	<?php elseif ($pMax != "0" ):?>
-	<div class="navigation">
-		<div class="navigation-previous"><a href="/?page=<?=(abs($_GET['page'])-2);?>">Назад</a></div>
     </div>
 	<?php endif;?>
 <?php else:?>
