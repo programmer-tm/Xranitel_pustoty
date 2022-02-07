@@ -7,8 +7,8 @@ if ($_SESSION["login"] != ""){
 } else {
     // Если никто не залогинен, то отобразим ссылку на вход.
     $menu = '<form action="/register/" method="post" enctype="multipart/form-data">
-    <input style="width: 180px; margin-bottom: 4px;" type="text" placeholder="Введите логин" name="login" required><br>
-    <input style="width: 180px; margin-bottom: 4px;" type="password" placeholder="Введите пароль" name="password" required><br>
+    <input class="form_in_menu" type="text" placeholder="Введите логин" name="login" required><br>
+    <input class="form_in_menu" type="password" placeholder="Введите пароль" name="password" required><br>
     <center><button type="submit">Вход</button>
     <button type="reset" class="cancelbtn">Очистить</button></center><br>
     <a href="/reset/" title="Сброс пароля">Забыл пароль?</a> | <a href="/register/">Регистрация</a>

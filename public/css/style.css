@@ -660,3 +660,8 @@ button,input[type="button"],input[type="file"]{
 	width: 540px;
 	margin-bottom: 4px;
 }
+
+.form_in_menu{
+	width: 180px;
+	margin-bottom: 4px;
+}
